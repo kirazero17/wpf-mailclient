@@ -1,0 +1,74 @@
+<Page x:Class="Lab5.pages.Send"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Send Mails"
+        Style="{DynamicResource MahApps.Styles.Page}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Name="Btn_Back" Width="70" Height="25"
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                Click="Btn_Back_Clicked" Content="Back"/>
+
+            <Label Grid.Column="1" Content="Send an E-mail" FontSize="28"
+            VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                        <Label Content="From:" Target="{Binding ElementName=txtFrom}"/>
+                        <TextBox Name="txtFrom" BorderThickness="1"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                        <Label Content="To:" Target="{Binding ElementName=txtTo}"/>
+                        <TextBox Name="txtTo" BorderThickness="1"/>
+                    </StackPanel>
+                    <Button Grid.Row="1" Grid.Column="1" Name="Btn_Send" Width="140" Height="40"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" Content="Send"
+                            Click="Btn_Send_Clicked"/>
+                </Grid>
+
+                <DockPanel Grid.Row="1"
+                            VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                    <Label DockPanel.Dock="Top" Content="Subject:" Target="{Binding ElementName=txtSubj}"/>
+                    <TextBox DockPanel.Dock="Top" Name="txtSubj" BorderThickness="1"/>
+                    <Label DockPanel.Dock="Top" Content="Body:" Target="{Binding ElementName=txtBody}"/>
+                    <RichTextBox DockPanel.Dock="Top" Name="txtBody" BorderThickness="1"/>
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
